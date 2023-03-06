@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Factory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('blogpages.index');
+});
+
+Route::get('/login', function () {
+    return view('forms.login');
+});
+
+Route::get('/register', function () {
+    return view('forms.register');
+});
+
+Route::get('/newpost', function () {
+    return view('forms.newpost');
 });
