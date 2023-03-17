@@ -1,6 +1,5 @@
 <?php
 
-use Carbon\Factory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::controller(\App\Http\Controllers\UserController::class)->group(function(){
     Route::get('login', 'login')->name('login');
     Route::post('login', 'authenticate')->name('authenticate');
@@ -24,5 +21,5 @@ Route::controller(\App\Http\Controllers\UserController::class)->group(function()
 });
 
 Route::controller(\App\Http\Controllers\BlogController::class)->group(function(){
-    Route::get('/', 'index')->name('index');
+    Route::get('/', 'index');
 });
