@@ -14,18 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('blogpages.index');
+
+
+Route::controller(\App\Http\Controllers\UserController::class)->group(function(){
+    Route::get('login', 'login')->name('login');
+    Route::post('login', 'authenticate')->name('authenticate');
+    Route::get('register', 'register')->name('register');
+    Route::post('register', 'store')->name('store');
 });
 
-Route::get('/login', function () {
-    return view('forms.login');
-});
-
-Route::get('/register', function () {
-    return view('forms.register');
-});
-
-Route::get('/newpost', function () {
-    return view('forms.newpost');
+Route::controller(\App\Http\Controllers\BlogController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
 });
